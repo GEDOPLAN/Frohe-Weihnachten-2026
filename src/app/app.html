@@ -22,3 +22,16 @@
   }
   <button type="button" class="neustart" (click)="neuStart()">Neustart</button>
 </p>
+<footer>
+  @for (zeile of [{ text: 'die faire Version', prompt: netterPrompt }, { text: 'die unfaire Version', prompt: boeserPrompt }]; track zeile.text) {
+    <div class="ki-zeile">
+      <span>Lass die KI das mal machen ({{ zeile.text }}):</span>
+      <a class="link" [href]="chatGptUrl(zeile.prompt)" target="_blank" rel="noopener">ChatGPT
+        <svg class="extern" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+      </a>
+      <button type="button" class="link" (click)="kopieren(zeile.prompt)">
+        {{ kopiert() === zeile.prompt ? 'Kopiert!' : 'Prompt kopieren' }}
+      </button>
+    </div>
+  }
+</footer>

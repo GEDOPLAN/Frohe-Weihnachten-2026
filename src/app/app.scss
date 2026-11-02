@@ -20,7 +20,7 @@
     color: var(--gold-1);
     font: 700 1.1rem "Cormorant SC", Georgia, serif;
     cursor: pointer;
-    transition: background .2s, color .2s, box-shadow .2s;
+    transition: .2s;
 
     &:active:not(:disabled) {
       background: linear-gradient(135deg, var(--gold-2), var(--gold-1));
@@ -40,11 +40,10 @@
   align-items: center;
   gap: 1rem;
   color: var(--gold-1);
-  font-family: "Cormorant SC", Georgia, serif;
-  font-size: 1.2rem;
+  font: 1.2rem "Cormorant SC", Georgia, serif;
 }
 
-.neustart {
+.neustart, .link {
   border: 1px solid var(--line);
   background: transparent;
   color: var(--gold-1);
@@ -55,6 +54,15 @@
   cursor: pointer;
 }
 
+.link {
+  text-decoration: none;
+  text-align: center;
+
+  &:hover, &:focus-visible {
+    border-color: var(--gold-1);
+  }
+}
+
 .gruss {
   margin: 0;
   text-align: center;
@@ -62,11 +70,8 @@
   line-height: 1;
 }
 
-.zeile {
-  display: block;
-}
-
 .zeile-1 {
+  display: block;
   font-family: "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
   font-size: clamp(2.8rem, 10vw, 7rem);
   padding-bottom: .15em;
@@ -74,71 +79,32 @@
 
 .zeile-2 {
   display: inline-block;
-  font-family: "Cormorant SC", "Cormorant Garamond", Georgia, serif;
-  font-weight: 700;
-  font-size: clamp(1.6rem, 5.5vw, 3.6rem);
+  font: 700 clamp(1.6rem, 5.5vw, 3.6rem) "Cormorant SC", "Cormorant Garamond", Georgia, serif;
   letter-spacing: .32em;
   margin-right: -.32em;
   padding-top: .45em;
   border-top: 1px solid var(--line);
 }
 
+/* Goldene Buchstaben */
 .g {
   display: inline-block;
-  color: var(--gold-1);
+  color: transparent;
+  background: linear-gradient(100deg,
+  var(--gold-1), var(--gold-2) 25%, var(--gold-1) 50%,
+  var(--gold-2) 75%, var(--gold-1)) 0 0 / 200% 100%;
+  background-clip: text;
+  animation: auftritt 1.2s cubic-bezier(.2, .7, .2, 1) both;
 }
 
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .g {
-    background-image: linear-gradient(100deg,
-    var(--gold-1) 0%, var(--gold-2) 45%, var(--gold-1) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
+.g2 { animation-delay: .15s; }
+.g3 { animation-delay: .3s; }
+.g4 { animation-delay: .6s; }
+.g5 { animation-delay: .7s; }
+.g6 { animation-delay: .8s; }
 
-
-@media (prefers-reduced-motion: no-preference) {
-  .g {
-    animation: auftritt 1.2s cubic-bezier(.2, .7, .2, 1) both;
-  }
-  .g2 {
-    animation-delay: .15s;
-  }
-  .g3 {
-    animation-delay: .3s;
-  }
-  .g4 {
-    animation-delay: .6s;
-  }
-  .g5 {
-    animation-delay: .7s;
-  }
-  .g6 {
-    animation-delay: .8s;
-  }
-}
-
-// Gelöst: Goldglanz wandert dauerhaft durch die Schrift
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  @media (prefers-reduced-motion: no-preference) {
-    .geloest .g {
-      background-image: linear-gradient(100deg,
-      var(--gold-1) 0%, var(--gold-2) 25%, var(--gold-1) 50%, var(--gold-2) 75%, var(--gold-1) 100%);
-      background-size: 200% 100%;
-      animation: glanz 2.5s linear infinite;
-    }
-  }
-}
-
-@keyframes glanz {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -200% 0;
-  }
+.geloest .g {
+  animation: glanz 2.5s linear infinite;
 }
 
 @keyframes auftritt {
@@ -146,8 +112,38 @@
     opacity: 0;
     transform: translateY(.15em);
   }
+}
+
+@keyframes glanz {
   to {
-    opacity: 1;
-    transform: none;
+    background-position: -200% 0;
   }
+}
+
+footer{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ki-zeile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  color: var(--gold-1);
+  font-size: .9rem;
+}
+
+.extern {
+  width: 1em;
+  height: 1em;
+  margin-left: .35em;
+  vertical-align: -.125em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

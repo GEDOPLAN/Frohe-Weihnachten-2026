@@ -16,15 +16,38 @@ export class App {
   zuege = signal(0);
   geloest = computed(() => this.schalter().every(Boolean));
 
+  readonly netterPrompt =
+    'Analysiere das Schalterrätsel auf folgender Webseite: https://gedoplan.github.io/Frohe-Weihnachten-2026/ . ' +
+    'Gib mir eine Lösung für das Schalterrätsel.' +
+    'Führe keine Sourcecode-Analyse durch, erreiche die Lösung durch ausprobieren. Teile mir mit wie viele Züge du gebraucht hast.';
+
+  readonly boeserPrompt =
+    'Analysiere das Schalterrätsel auf folgender Webseite: https://gedoplan.github.io/Frohe-Weihnachten-2026/ . ' +
+    'Gib mir eine Lösung für das Schalterrätsel.' +
+    'Führe eine Sourcecode-Analyse durch.';
+
+  // Welcher Prompt zuletzt kopiert wurde (für die kurze "Kopiert!"-Rückmeldung)
+  kopiert = signal<string | null>(null);
+
+  chatGptUrl(prompt: string) {
+    return 'https://chatgpt.com/?q=' + encodeURIComponent(prompt);
+  }
+
+  async kopieren(prompt: string) {
+    await navigator.clipboard.writeText(prompt);
+    this.kopiert.set(prompt);
+    setTimeout(() => this.kopiert.set(null), 2000);
+  }
+
   druecken(i: number) {
-    this.schalter.update(s => {
+    this.schalter.update((s) => {
       const neu = [...s];
       neu[i] = !neu[i];
       const ziel = (i + this.effektOffset) % this.anzahl;
       neu[ziel] = !neu[ziel];
       return neu;
     });
-    this.zuege.update(z => z + 1);
+    this.zuege.update((z) => z + 1);
   }
 
   neuStart() {
