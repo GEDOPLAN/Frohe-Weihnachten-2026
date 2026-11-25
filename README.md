@@ -1,59 +1,36 @@
-# GedoplanAdvent2026
+<div align="center">
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.3.0.
+# ✦ Frohe Weihnachten 2026 ✦
 
-## Development server
+### GEDOPLAN wünscht frohe Weihnachten und einen guten Rutsch ins neue Jahr!
 
-To start a local development server, run:
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+| | Spiel | Worum geht's? |
+|---|---|---|
+| 🃏 | [**Memory**](https://gedoplan.github.io/Frohe-Weihnachten-2026/memory) | Finde alle Paare – von der Zuckerstange über die Glühweintasse bis zur Angular-Kugel. |
+| 🧩 | [**Schiebepuzzle**](https://gedoplan.github.io/Frohe-Weihnachten-2026/sliding) | Schiebe die Kacheln zurück an ihren Platz, bis das Weihnachtsbild komplett ist. |
+| 💡 | [**Lichterkette**](https://gedoplan.github.io/Frohe-Weihnachten-2026/lights) | Betätige die Schalter, bis die ganze Weihnachtsbeleuchtung strahlt. Wie viele Züge brauchst du? |
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Unter der Haube
 
-```bash
-ng generate component component-name
-```
+- [Angular](https://angular.dev) 22 mit Standalone Components und Lazy Loading
+- [NgRx Signal Store](https://ngrx.io/guide/signals)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Selbst ausprobieren
 
 ```bash
-ng build
+npm install
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Danach [http://localhost:4200](http://localhost:4200) öffnen und loslegen.
 
-## Running unit tests
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+✨ Danke an alle Kundinnen, Kunden, Partner und Teilnehmenden für ein tolles Jahr 2026 ✨
 
-```bash
-ng test
-```
+**Euer [GEDOPLAN](https://gedoplan.de)-Team**
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+</div>
