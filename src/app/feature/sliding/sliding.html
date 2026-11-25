@@ -1,0 +1,7 @@
+@if (appStore.finished()) {
+  <img src="gedxmas_komplett.png" alt="gedxmas_komplett.png" />
+} @else {
+  @for (memo of slidingStore.tiles(); track memo.value) {
+    <app-tile [tileContent]="memo.value" [toggleIn]="true" (toggle)="slidingStore.toggle(memo.value)"></app-tile>
+  }
+}

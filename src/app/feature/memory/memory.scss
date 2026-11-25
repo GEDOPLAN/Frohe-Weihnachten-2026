@@ -1,0 +1,29 @@
+@use 'variables' as *;
+
+$area: 800px;
+$tileMargin: 10px;
+$tile: calc($area / 4 - $tileMargin);
+
+:host{
+  width: $area;
+  height: $area;
+
+  background: linear-gradient(
+    100deg,
+    $night-1 0%,
+    mix($night-1, $night-2, 75%) 20%,
+    mix($night-1, $night-2, 50%) 35%,
+    mix($night-1, $night-2, 50%) 65%,
+    mix($night-1, $night-2, 75%) 80%,
+    $night-1 100%
+  );
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: $tileMargin;
+
+  app-tile{
+    width: $tile;
+    height: $tile;
+  }
+}

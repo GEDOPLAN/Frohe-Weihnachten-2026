@@ -1,0 +1,3 @@
+@for(memo of memoryStore.tiles();track memo.id){
+  <app-tile [tileContent]="memo.value" [toggleIn]="memo.toggled" (toggle)="memoryStore.toggle(memo)"></app-tile>
+}

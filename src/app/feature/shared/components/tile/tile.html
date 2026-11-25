@@ -1,0 +1,5 @@
+@if (toggleIn()) {
+  <div (click)="toggle.emit(true)"><img [src]="tileContent()" [alt]="tileContent()"> </div>
+} @else {
+  <div (click)="toggle.emit(true)"><img [src]="background()" alt="???"> </div>
+}

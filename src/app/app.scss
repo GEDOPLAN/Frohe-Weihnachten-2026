@@ -1,0 +1,118 @@
+@use 'variables' as *;
+
+@mixin snow-layer($size, $tile, $duration, $opacity: 1) {
+  background-image:
+    radial-gradient($size $size at 20% 30%, $snow 50%, transparent 51%),
+    radial-gradient($size $size at 70% 60%, $snow 50%, transparent 51%),
+    radial-gradient($size $size at 40% 85%, $snow 50%, transparent 51%),
+    radial-gradient($size $size at 90% 15%, $snow 50%, transparent 51%);
+  background-size: $tile $tile;
+  opacity: $opacity;
+  animation: snowfall $duration linear infinite;
+}
+
+.xmas {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 2rem 1rem;
+  font-family: $font-serif;
+  color: #f4f1ea;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba($gold-2, 0.18), transparent 60%),
+    radial-gradient(ellipse at 50% 120%, $pine 0%, transparent 60%),
+    linear-gradient(180deg, $night-1 0%, $night-2 100%);
+
+
+  &.snow::before,
+  &.snow::after {
+    content: '';
+    position: absolute;
+    inset: -200px 0 0 0;
+    pointer-events: none;
+  }
+
+  &.snow::before { @include snow-layer(3px, 180px, 18s, 0.8); }
+  &.snow::after  { @include snow-layer(2px, 120px, 28s, 0.5); filter: blur(0.5px); }
+
+  header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    pointer-events: none;
+    overflow: hidden;
+    animation: header-enter 4s ease-out both;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: $font-script;
+    font-weight: 400;
+    font-size: clamp(3.5rem, 12vw, 9rem);
+    line-height: 1.1;
+
+    background: linear-gradient(
+      100deg,
+      $gold-3 0%,
+      $gold-2 25%,
+      $gold-1 45%,
+      #fff 50%,
+      $gold-1 55%,
+      $gold-2 75%,
+      $gold-3 100%
+    );
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba($gold-2, 0.35));
+    animation: shimmer 6s ease-in-out infinite;
+  }
+
+  p {
+    margin: 0.75rem 0;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-style: italic;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 3rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, $gold-2, transparent);
+    }
+  }
+}
+
+@keyframes snowfall {
+  from { transform: translateY(0); }
+  to   { transform: translateY(200px); }
+}
+
+@keyframes header-enter {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 40rem;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% center; }
+  50%      { background-position: 100% center; }
+}
+
