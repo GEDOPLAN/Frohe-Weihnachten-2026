@@ -1,0 +1,40 @@
+@let s = lightsStore.switches();
+@let f = lightsStore.finished();
+<div class="greeting-wrap" [class.finished]="f">
+<h1 class="greeting" aria-label="Frohe Weihnachten, Gedoplan">
+  <span class="line line-1" aria-hidden="true">
+    <span [class.lit]="s[0]">Frohe</span><span [class.lit]="s[1]">Weih</span><span [class.lit]="s[2]">nachten</span>
+  </span>
+  <span class="line line-2" aria-hidden="true">
+    <span [class.lit]="s[3]">Ge</span><span [class.lit]="s[4]">do</span><span [class.lit]="s[5]">plan</span>
+  </span>
+</h1>
+</div>
+
+<span class="hint">Diese Schalter betätigen, um die Weihnachtsbeleuchtung anzuschalten:</span>
+<div class="switches" role="group" aria-label="Schalter">
+  @for (i of switchOrder; track i) {
+    <button type="button" aria-label="Schalter" [disabled]="f" (click)="lightsStore.press(i)">✦</button>
+  }
+</div>
+
+<p class="status">
+  @if (f) {
+    Geschafft in {{ lightsStore.moves() }} Zügen!
+  }
+  <button type="button" class="pill" (click)="lightsStore.restart()">Neustart</button>
+</p>
+
+<footer>
+  @for (row of prompts; track row.text) {
+    <div class="hint">
+      <span>Lass die KI das mal machen ({{ row.text }}):</span>
+      <a class="pill" [href]="chatGptUrl(row.prompt)" target="_blank" rel="noopener">ChatGPT
+        <svg class="external" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+      </a>
+      <button type="button" class="pill" (click)="lightsStore.copyPrompt(row.prompt)">
+        {{ lightsStore.copiedPrompt() === row.prompt ? 'Kopiert!' : 'Prompt kopieren' }}
+      </button>
+    </div>
+  }
+</footer>

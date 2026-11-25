@@ -14,4 +14,8 @@ export const routes: Routes = [
     path: 'sliding',
     loadComponent: () => import('./feature/sliding/sliding').then((m) => m.Sliding),
   },
+  {
+    path: 'lights',
+    loadComponent: () => import('./feature/lights/lights').then((m) => m.Lights),
+  },
 ];
