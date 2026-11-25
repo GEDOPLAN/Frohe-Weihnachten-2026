@@ -10,9 +10,10 @@
 
 | | Spiel | Worum geht's? |
 |---|---|---|
+| 🕯️ | [**Adventskranz**](https://gedoplan.github.io/Frohe-Weihnachten-2026/) | Die Startseite: An jedem Adventssonntag geht eine weitere Kerze an – und mit ihr ein neues Spiel. Einfach auf eine brennende Kerze klicken. |
 | 🃏 | [**Memory**](https://gedoplan.github.io/Frohe-Weihnachten-2026/memory) | Finde alle Paare – von der Zuckerstange über die Glühweintasse bis zur Angular-Kugel. |
-| 🧩 | [**Schiebepuzzle**](https://gedoplan.github.io/Frohe-Weihnachten-2026/sliding) | Schiebe die Kacheln zurück an ihren Platz, bis das Weihnachtsbild komplett ist. |
 | 💡 | [**Lichterkette**](https://gedoplan.github.io/Frohe-Weihnachten-2026/lights) | Betätige die Schalter, bis die ganze Weihnachtsbeleuchtung strahlt. Wie viele Züge brauchst du? |
+| 🧩 | [**Schiebepuzzle**](https://gedoplan.github.io/Frohe-Weihnachten-2026/sliding) | Schiebe die Kacheln zurück an ihren Platz, bis das Weihnachtsbild komplett ist. |
 
 ## Unter der Haube
 

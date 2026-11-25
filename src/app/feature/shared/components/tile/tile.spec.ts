@@ -11,6 +11,7 @@ describe('Tile', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(Tile);
+    fixture.componentRef.setInput('tileContent', 'test');
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
